@@ -25,10 +25,11 @@ function checkSID() {
 
 function checkCandiNo() {
   let candi = (document.getElementById("candi").value).trim();
-  if (isNaN(candi) || candi < 1) {
-    return false;
-  } else {
+
+  if (!isNumeric(candi) || !(candi >= 1 && candi <= 10)) {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -38,7 +39,7 @@ function validateForm(){
 	  document.getElementById("sid").focus();
 	  return false;
 	}else{
-		if(!checkCandiNo()){
+		if(checkCandiNo()){
 		  alert("Invalid value for Candidate No!!");
 		  document.getElementById("candi").focus();
 		  return false;
